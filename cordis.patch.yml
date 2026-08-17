@@ -1,0 +1,6 @@
+# dsh-plugin-catalog bundle patch: host row (HTTP API for plugin list + notes).
+# The browser half is served through the package.json `dsh.client` declaration.
+- insert:
+    - id: plugin-catalog
+      name: dsh-plugin-catalog
+      config: {}
