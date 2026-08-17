@@ -1,7 +1,7 @@
 {
   "name": "dsh-plugin-catalog",
-  "version": "0.1.0",
-  "description": "Plugin catalog for the dsh web GUI: a Settings section listing every installed profile bundle, auto-grouped by source (DSH core / UI suite / community / local / GitHub), each with a searchable name/description and an editable per-plugin note persisted on the host (shared across devices). No dsh sources are touched. 中文：插件目录（设置页）：已装插件分类列表 + 备注注释 + 搜索。",
+  "version": "0.2.0",
+  "description": "Plugin catalog for the dsh web GUI: grouped list + search + per-plugin notes + VERSION CHECK (npm/github/link, read-only) with one-click update for npm packages (backup + rollback + lockfile-safe). No dsh sources touched. 中文：插件目录：分类/搜索/备注 + 版本检查与 npm 包一键更新。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
