@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-catalog",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Plugin catalog for the dsh web GUI: grouped list + search + per-plugin notes + VERSION CHECK (npm/github/link, read-only) with one-click update for npm packages (backup + rollback + lockfile-safe). No dsh sources touched. 中文：插件目录：分类/搜索/备注 + 版本检查与 npm 包一键更新。",
   "type": "module",
   "main": "lib/index.js",
