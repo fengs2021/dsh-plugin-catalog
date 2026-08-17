@@ -15,6 +15,7 @@
 - **Search**: realtime filter over name + description
 - **Notes (annotations)**: one note per plugin, saved host-side to `$DSH_HOME/plugin-catalog/notes.json` — same notes on your phone and desktop
 - **Refresh**: reloads the list at any time
+- **Version check (v0.2.0)**: every open auto-checks the latest version per source — npm (dist-tags max), github (locked commit vs remote HEAD), link (local vs remote HEAD), builtin (skipped, DSH-managed). Updated packages show a badge + **one-click update** for npm packages (backup → pnpm update --depth 1 → rollback on failure). link/github packages are read-only hints (see Notes)
 
 ### How it works
 
@@ -34,6 +35,7 @@ Then open **设置 → 插件目录** (Settings → Plugin Catalog).
 
 ### Notes
 
+- **Update safety**: one-click update is limited to npm-registry packages (exact allowlist, backup + rollback, in-flight lock, no auto-restart — you restart dsh-web yourself). link/github packages only show change hints: github packages pin commits in the profile spec (pnpm update cannot cross a pinned commit), link packages are your local dev copies (updating could overwrite local work) — handle those manually
 - Safe by design: the host half only reads package.json metadata and writes one JSON file under `$DSH_HOME/plugin-catalog/` — it never writes into `node_modules` or any dsh-managed path
 - Categories are auto-derived from the dependency spec (`link:` / `github:` / built-in / scope prefix)
 
@@ -46,6 +48,7 @@ Then open **设置 → 插件目录** (Settings → Plugin Catalog).
 - **搜索**：按插件名或描述关键字实时过滤
 - **备注**：每插件一个备注输入框，存到 `$DSH_HOME/plugin-catalog/notes.json`——手机/电脑跨设备共享
 - **刷新**：随时重新加载列表
+- **版本检查（v0.2.0）**：每次打开自动按来源检查最新版本——npm（dist-tags 最大）、github（锁定 commit vs 远端 HEAD）、link（本地 vs 远端 HEAD）、内置（跳过，跟随 DSH 托管）；有更新的包显示徽标，npm 包支持**一键更新**（备份 → pnpm update --depth 1 → 失败自动回滚）；link/github 包仅只读提示（见说明）
 
 ### 实现
 
@@ -65,6 +68,7 @@ systemctl restart dsh-web   # 或 dev 工具热装配（免重启）
 
 ### 说明
 
+- **更新安全**：一键更新仅限 npm registry 包（精确白名单、备份+回滚、进行中锁、不自动重启——由你自行重启 dsh-web）；link/github 包只显示变更提示：github 包在 profile spec 里锁定 commit（pnpm update 无法跨越锁定 commit），link 包是本地开发副本（更新可能覆盖本地工作）——请手动处理
 - 安全设计：host 半只读 package.json 元数据 + 写一个 `$DSH_HOME/plugin-catalog/` 下的 JSON 文件——绝不写入 node_modules 或任何 dsh 管理路径
 - 分类自动派生：按依赖 spec（`link:` / `github:` / 内置 / scope 前缀）
 
